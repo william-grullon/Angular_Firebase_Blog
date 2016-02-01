@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>My AngularJS App</title>
+  <title>AngularPress</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/css/normalize.css">
@@ -14,17 +14,19 @@
 </head>
 <body>
   <div ng-view></div>
-
+  <!--angular-->
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
+  <!--firebase import-->
   <script src="https://cdn.firebase.com/js/client/1.0.18/firebase.js"></script>
-<script src="https://cdn.firebase.com/libs/angularfire/0.8.0/angularfire.min.js"></script>
-<script src="https://cdn.firebase.com/js/simple-login/1.6.2/firebase-simple-login.js"></script>
-  <script src="app.js"></script>
-  <script src="home/home.js"></script>
+  <script src="https://cdn.firebase.com/libs/angularfire/0.8.0/angularfire.min.js"></script>
+  <script src="https://cdn.firebase.com/js/simple-login/1.6.2/firebase-simple-login.js"></script>
+  <!--Angular-seed files-->
   <script src="components/version/version.js"></script>
   <script src="components/version/version-directive.js"></script>
   <script src="components/version/interpolate-filter.js"></script>
+  <!--My Own files-->
+  <script src="app.js"></script>
   <script src="home/home.js"></script>
 </body>
 </html>
