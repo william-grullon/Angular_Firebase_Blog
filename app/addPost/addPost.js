@@ -12,7 +12,7 @@ angular.module('myApp.addPost', ['ngRoute'])
     });
 }])
 
-    .controller('AddPostCtrl', ['$scope','$firebase','CommonProp',function($scope,$firebase,CommonProp) {
+.controller('AddPostCtrl', ['$scope','$firebase','$location','CommonProp',function($scope,$firebase,$location,CommonProp) {
     $scope.AddPost = function(){
         var title = $scope.article.title;
         var post = $scope.article.post;
@@ -20,11 +20,7 @@ angular.module('myApp.addPost', ['ngRoute'])
         var firebaseObj = new Firebase("https://angularpress.firebaseio.com/Articles");
         var fb = $firebase(firebaseObj);
 
-        fb.$push({
-            title: title,
-            post: post,
-            emailId: CommonProp.getUser()
-        }).then(function(ref) {
+        fb.$push({ title: title,post: post,emailId: CommonProp.getUser() }).then(function(ref) {
             console.log(ref);
             $location.path('/welcome');
         }, function(error) {

@@ -34,7 +34,7 @@ angular.module('myApp.home', ['ngRoute','firebase'])
     }
 }])
 .service('CommonProp', function() {
-    var user = '';
+    var user = 'Guest';
 
     return {
         getUser: function() {
