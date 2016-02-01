@@ -32,16 +32,31 @@ angular.module('myApp.home', ['ngRoute','firebase'])
                 console.log('Authentication failure');
             });
     }
+
+
 }])
-.service('CommonProp', function() {
+
+.service('CommonProp',['$location','$firebaseAuth',function($location,$firebaseAuth) {
     var user = 'Guest';
+    var firebaseObj = new Firebase("https://angularpress.firebaseio.com");
+    var loginObj = $firebaseAuth(firebaseObj);
 
     return {
         getUser: function() {
+            if(user == 'Guest'){
+                user = localStorage.getItem('userEmail');
+            }
             return user;
         },
         setUser: function(value) {
+            localStorage.setItem("userEmail", value);
             user = value;
+        },
+        logoutUser:function(){
+            loginObj.$unauth();
+            user='Guest';
+            localStorage.removeItem('userEmail');
+            $location.path('/home');
         }
     };
-});
+}])
