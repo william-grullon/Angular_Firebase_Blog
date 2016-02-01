@@ -13,6 +13,6 @@ angular.module('myApp', [
 config(['$routeProvider', function($routeProvider) {
     //take it to home folder
     $routeProvider.otherwise({
-         redirectTo: '/home'
+         redirectTo: '/welcome'
     });
 }]);
