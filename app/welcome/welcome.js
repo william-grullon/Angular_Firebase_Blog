@@ -12,6 +12,14 @@ angular.module('myApp.welcome', ['ngRoute'])
     });
 }])
 
-.controller('WelcomeCtrl', ['$scope','CommonProp', function($scope,CommonProp) {
+.controller('WelcomeCtrl', ['$scope','$firebase','CommonProp', function($scope,$firebase,CommonProp) {
     $scope.username = CommonProp.getUser();
+    var firebaseObj = new Firebase("https://angularpress.firebaseio.com/Articles");
+
+
+    var sync = $firebase(firebaseObj);
+
+    $scope.articles = sync.$asArray();
+
+
 }]);

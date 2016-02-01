@@ -26,6 +26,7 @@ angular.module('myApp.addPost', ['ngRoute'])
             emailId: CommonProp.getUser()
         }).then(function(ref) {
             console.log(ref);
+            $location.path('/welcome');
         }, function(error) {
             console.log("Error:", error);
         });
